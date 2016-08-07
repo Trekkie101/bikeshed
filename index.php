@@ -52,14 +52,33 @@ echo'
 
     <div class="container">
 
+    <h1>Hello $user,</h1><br />
+
       <div class="row">
           <div class="col-md-6">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title">Calendar</h3>
+                <h3 class="panel-title">Calendar - <i>All users</i></h3>
             </div>
             <div class="panel-body">
-              Calendar content goes here
+
+
+                <table class="table table-condensed">
+                  <tr class="info"><td><b>Monday</b></td></tr>
+                  <tr><td class="danger">Task 1 - <i>Overdue</i></td></tr>
+                  <tr class="info"><td><b>Tuesday</b></td></tr>
+                  <tr><td>Task 2</td></tr>
+                  <tr><td>Read a book</td></tr>
+                  <tr class="info"><td><b>Wednesday<b/></td></tr>
+                  <tr><td>Empty trash</td></tr>
+                  <tr><td>Make tea</td></tr>
+                  <tr><td>Go for a run</td></tr>
+
+                </table>
+
+
+
+
             </div>
           </div>
         </div>
@@ -67,10 +86,37 @@ echo'
             <div class="col-md-6">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Todo</h3>
+                  <h3 class="panel-title">Todo - <i>Assigned to me</i></h3>
               </div>
               <div class="panel-body">
-                What you are todo goes here
+
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <span class="badge">Done</span>
+                        Complete Homework <small><i> -4 days</i></small>
+                    </li>
+                    <li class="list-group-item">
+                      <span class="badge">Done</span>
+                        Make a milkshake <small><i> -6 days</i></small>
+                    </li>
+                    <li class="list-group-item">
+                      <span class="badge">Done</span>
+                        Watch a dvd
+                    </li>
+                    <li class="list-group-item">
+                      <span class="badge">Done</span>
+                        Make a list
+                    </li>
+                  </ul>
+
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="New item...">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Add!</button>
+                        </span>
+                    </div>
+
+
               </div>
             </div>
           </div>
@@ -95,7 +141,23 @@ echo'
                   <h3 class="panel-title">Messages</h3>
               </div>
               <div class="panel-body">
-                A small message board appears
+
+              <table class="table table-condensed">
+                <tr><td><b>Trekkie101</b></td><td>Hi folks, how are you?</td></tr>
+                <tr><td><b>Sami</b></td><td>Hi</td></tr>
+                <tr><td><b>Sami</b></td><td>It\'s going well</td></tr>
+                <tr><td><b>Trekkie101</b></td><td>This is an extra long message to test what the box does when the content is too long</td></tr>
+                <tr><td><b>Trekkie101</b></td><td>It worked!</td></tr>
+              </table>
+
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Say something">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Send</button>
+                  </span>
+              </div>
+
+
               </div>
             </div>
           </div>
