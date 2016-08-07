@@ -1,6 +1,6 @@
 {
   "name": "BikeShed",
   "tagline": "The BikeShed project management tool",
-  "body": "## Welcome to BikeShed\r\nThe web-based project management tool. PHP and MySQL/MariaDB based solution. Uses bootstrap.\r\n\r\n### BikeShed\r\nBased on Parkinsons Law of Triviality, suggests the smaller a problem is, the more likely it is to be discussed. There should be a project tool to enable this. \r\n\r\nTo this end, presenting BikeShed.\r\n\r\nhttps://en.wikipedia.org/wiki/Parkinson%27s_Law_of_Triviality\r\n\r\n\r\n\r\n",
+  "body": "## Welcome to BikeShed\r\nThe web-based project management tool. PHP and MySQL/MariaDB based solution. Uses bootstrap.\r\n\r\n### Why is it called 'BikeShed'?\r\nBased on Parkinsons Law of Triviality, suggests the smaller a problem is, the more likely it is to be discussed. There should be a project tool to enable this. \r\n\r\nTo this end, presenting BikeShed.\r\n\r\n[Parkinsons Law of Triviality](https://en.wikipedia.org/wiki/Parkinson%27s_Law_of_Triviality)\r\n\r\n\r\n\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
