@@ -18,11 +18,14 @@ include 'config.php';
       $todoAdd2 = htmlentities($todoAdd1);
       $todoAdd3 = mysql_real_escape_string($todoAdd2);
 
-          mysql_query("INSERT INTO bs_todo (todoid,todoassigned,tododue,todotask,todocomplete,todoprojid) VALUES('','1','','$todoAdd3','0','1')") or die(mysql_error());
+      $futuredate = strtotime("+7 day");
+      $storedate = date('Y-m-d', $futuredate);
+
+          mysql_query("INSERT INTO bs_todo (todoid,todoassigned,tododue,todotask,todocomplete,todoprojid) VALUES('','1','$storedate','$todoAdd3','0','1')") or die(mysql_error());
 
     mysql_close();
 
 header("Location: index.php");
-  die();
+
 
 ?>

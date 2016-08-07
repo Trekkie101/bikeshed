@@ -1,13 +1,20 @@
 <?php
 
-# BikeShed version 0.0.0.1
-# File version 0.0.0.5
+# BikeShed version 0.0.0.2
+# File version 0.0.0.6
 
 # BikeShed
 # https://github.com/Trekkie101/bikeshed
 
 # index.php
 # Main Dashboard - provides overview of whole project
+
+
+session_start();
+
+if(!isset($_SESSION['userId'])) {
+      header("Location: login.php");
+} else {
 
 include 'config.php';
 
@@ -67,7 +74,7 @@ echo'
 
     <div class="container">
 
-    <h1>Hello $user,</h1><br />
+    <h1>Hello '.$_SESSION['username'].',</h1><br />
 
       <div class="row">
           <div class="col-md-6">
@@ -107,12 +114,16 @@ echo'
                   <ul class="list-group">';
 
 
-              $todo1 = mysql_query("SELECT * FROM bs_todo WHERE todoassigned = '1' AND todoprojid ='1'") or die(mysql_error());
+              $todo1 = mysql_query("SELECT * FROM bs_todo WHERE todoassigned = '1' AND todoprojid ='1' AND todocomplete = '0' ORDER BY tododue ASC") or die(mysql_error());
 
               while($row1 = mysql_fetch_array($todo1)) {
+
+                $todocompnum = $row1['todoid'];
+                $todocomplink = '<a class="badge" href="tododone.php?compnum='.$todocompnum.'">Done</a>';
+
                 echo'
                   <li class="list-group-item">
-                    <span class="badge">Done</span>';
+                    <span class="badge">'.$todocomplink.'</span>';
                       echo $row1['todotask']; echo' <small>-';
                       echo $row1['tododue'];
                 echo'</small></li>';
@@ -200,7 +211,7 @@ echo'
       <li>You are currently looking at: <b>Project Poseiden</b></li>
       <li><a href="changeproject.php">Change Project</a></li>
       <li><a href="tools.php">Settings</a></li>
-
+      <li><a href="logout.php">Logout</a></li>
     </ol>
 
     </div>
@@ -218,5 +229,7 @@ echo'
 ';
 
 mysql_close();
+
+}
 
 ?>
