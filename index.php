@@ -1,4 +1,14 @@
 <?php
+
+# BikeShed version 0.0.0.1
+# File version 0.0.0.4
+
+# BikeShed
+# https://github.com/Trekkie101/bikeshed
+
+# index.php
+# Main Dashboard - provides overview of whole project
+
 echo'
 <!DOCTYPE html>
 <html lang="en">
@@ -109,13 +119,18 @@ echo'
                     </li>
                   </ul>
 
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                      60%
+                    </div>
+                  </div>
+
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="New item...">
                         <span class="input-group-btn">
                           <button class="btn btn-default" type="button">Add!</button>
                         </span>
                     </div>
-
 
               </div>
             </div>
@@ -130,7 +145,7 @@ echo'
                 <h3 class="panel-title">Files</h3>
             </div>
             <div class="panel-body">
-              A list of files attached goes here
+             Coming soon
             </div>
           </div>
         </div>
