@@ -1,13 +1,18 @@
 <?php
 
 # BikeShed version 0.0.0.1
-# File version 0.0.0.4
+# File version 0.0.0.5
 
 # BikeShed
 # https://github.com/Trekkie101/bikeshed
 
 # index.php
 # Main Dashboard - provides overview of whole project
+
+include 'config.php';
+
+mysql_connect($dbhost, $dbuser, $dbpass) or die(mysql_error());
+mysql_select_db($dbname) or die(mysql_error());
 
 echo'
 <!DOCTYPE html>
@@ -99,29 +104,40 @@ echo'
                   <h3 class="panel-title">Todo - <i>Assigned to me</i></h3>
               </div>
               <div class="panel-body">
+                  <ul class="list-group">';
 
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <span class="badge">Done</span>
-                        Complete Homework <small><i> -4 days</i></small>
-                    </li>
-                    <li class="list-group-item">
-                      <span class="badge">Done</span>
-                        Make a milkshake <small><i> -6 days</i></small>
-                    </li>
-                    <li class="list-group-item">
-                      <span class="badge">Done</span>
-                        Watch a dvd
-                    </li>
-                    <li class="list-group-item">
-                      <span class="badge">Done</span>
-                        Make a list
-                    </li>
-                  </ul>
 
+              $todo1 = mysql_query("SELECT * FROM bs_todo WHERE todoassigned = '1' AND todoprojid ='1'") or die(mysql_error());
+
+              while($row1 = mysql_fetch_array($todo1)) {
+                echo'
+                  <li class="list-group-item">
+                    <span class="badge">Done</span>';
+                      echo $row1['todotask']; echo' <small>-';
+                      echo $row1['tododue'];
+                echo'</small></li>';
+              }
+
+              $todo2 = mysql_query("SELECT todocomplete, COUNT(*) FROM bs_todo WHERE todocomplete = '0' AND todoassigned = '1' AND todoprojid = '1'") or die(mysql_error());
+
+              while($row2 = mysql_fetch_array($todo2)) {
+                      $todoNotDone = $row2['COUNT(*)'];
+              }
+
+              $todo3 = mysql_query("SELECT todocomplete, COUNT(*) FROM bs_todo WHERE todocomplete = '1' AND todoassigned = '1' AND todoprojid ='1'") or die(mysql_error());
+
+              while($row3 = mysql_fetch_array($todo3)) {
+                      $todoDone = $row3['COUNT(*)'];
+              }
+
+              $todoTotal = ($todoDone + $todoNotDone);
+              $todoPercent = round((($todoDone / $todoTotal)*100)) ;
+
+              echo'
+              </ul>
                   <div class="progress">
-                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                      60%
+                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="'.$todoPercent.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$todoPercent.'%;">
+                      '.$todoPercent.'%
                     </div>
                   </div>
 
@@ -178,6 +194,12 @@ echo'
           </div>
     </div>
 
+    <ol class="breadcrumb">
+      <li>You are currently looking at: <b>Project Poseiden</b></li>
+      <li><a href="changeproject.php">Change Project</a></li>
+      <li><a href="tools.php">Settings</a></li>
+
+    </ol>
 
     </div>
 
@@ -193,5 +215,6 @@ echo'
 
 ';
 
+mysql_close();
 
- ?>
+?>

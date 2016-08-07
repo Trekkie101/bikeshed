@@ -1,13 +1,13 @@
 <?php
 
 # BikeShed version 0.0.0.1
-# File version 0.0.0.2
+# File version 0.0.0.1
 
 # BikeShed
 # https://github.com/Trekkie101/bikeshed
 
-# calendar.php
-# Will display a calendar of events coming soon from todo list
+# tools.php
+# Will change user settings
 
 echo'
 <!DOCTYPE html>
@@ -50,10 +50,8 @@ echo'
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Dashboard</a></li>
-            <li class="active"><a href="calendar.php">Calendar</a></li>
-            <li><a href="todo.php">Todo</a></li>
-            <li><a href="files.php">Files</a></li>
-            <li><a href="messages.php">Messages</a></li>
+            <li class="active"><a href="tools.php">Tools</a></li>
+
           </ul>
         </div>
       </div>
@@ -62,31 +60,20 @@ echo'
 
     <div class="container">
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Calendar - <i>All users</i></h3>
-            </div>
-          <div class="panel-body">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Change Language</h3>
+    </div>
+    <div class="panel-body">
 
+      <p>Which language would you like?</p>
 
-              <table class="table table-condensed">
-                <tr class="info"><td><b>Monday</b></td></tr>
-                <tr><td class="danger">Task 1 - <i>Overdue</i></td></tr>
-                <tr class="info"><td><b>Tuesday</b></td></tr>
-                <tr><td>Task 2</td></tr>
-                <tr><td>Read a book</td></tr>
-                <tr class="info"><td><b>Wednesday<b/></td></tr>
-                <tr><td>Empty trash</td></tr>
-                <tr><td>Make tea</td></tr>
-                <tr><td>Go for a run</td></tr>
+      <button type="button" class="btn btn-info">English</button>
+      <button type="button" class="btn btn-info">French</button>
+      <button type="button" class="btn btn-info">Spanish</button>
+      <a href="index.php" class="btn btn-danger">Cancel</a>
+    </div>
 
-              </table>
-
-
-
-
-          </div>
-        </div>
 
     </div>
 
@@ -104,4 +91,4 @@ echo'
 
 ';
 
- ?>
+?>
