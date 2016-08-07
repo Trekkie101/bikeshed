@@ -141,12 +141,14 @@ echo'
                     </div>
                   </div>
 
+                  <form action="todoaddquick.php" method="post">
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="New item...">
+                      <input type="text" class="form-control" name="todoquick" placeholder="Quick new item...">
                         <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">Add!</button>
+                          <button class="btn btn-default" type="submit">Add!</button>
                         </span>
                     </div>
+                </form>
 
               </div>
             </div>
